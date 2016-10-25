@@ -1,6 +1,8 @@
 from __future__ import division
 
-from math import (inf, isfinite, copysign)
+from math import (isfinite, copysign)
+
+inf = float("inf")
 
 _eps = 1.4901161193847656e-08
 

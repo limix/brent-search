@@ -1,6 +1,6 @@
 from __future__ import division
 
-from math import inf
+inf = float("inf")
 
 from ._bracket import bracket
 from ._brent import brent
