@@ -31,7 +31,7 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2,
         x0, x1 = x1, x0
         f0, f1 = f1, f0
 
-    if x0 + 2 * _tol(x0, rtol, atol) > x1:
+    if abs(x0 - x1) < 2 * _tol(x0, rtol, atol):
         ecode = 3
         return _sort(x0, x1, x1, f0, f1, f1), ecode
 
