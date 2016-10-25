@@ -1,3 +1,5 @@
+from __future__ import division
+
 _eps = 1.4901161193847656e-08
 _golden = 0.381966011250105097
 

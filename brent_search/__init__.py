@@ -9,6 +9,8 @@ except _DistributionNotFound:
     __version__ = 'unknown'
 
 from ._brent import brent
+from ._bracket import bracket
+from ._optimize import minimize
 
 def test():
     import os
