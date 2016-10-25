@@ -65,8 +65,6 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2,
         x0, x1, x2 = x1, x2, xt
         f0, f1, f2 = f1, f2, ft
 
-    assert x0 <= x1 <= x2
-
     if f0 > f1 < f2:
         ecode = 1
         return _sort(x0, x1, x2, f0, f1, f2), ecode
