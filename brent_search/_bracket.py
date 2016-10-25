@@ -111,10 +111,10 @@ def _initialize_interval(x0, x1, a, b, gfactor, rtol, atol):
 
     if x1 is None:
         if x0 - a > b - x0:
-            x1 = x0 - gfactor * _tol(x0, rtol, atol)
+            x1 = x0 - 10 * gfactor * _tol(x0, rtol, atol)
             x1 = max(x1, a)
         else:
-            x1 = x0 + gfactor * _tol(x0, rtol, atol)
+            x1 = x0 + 10 * gfactor * _tol(x0, rtol, atol)
             x1 = min(x1, b)
 
     return x0, x1
