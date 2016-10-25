@@ -1,6 +1,6 @@
 from __future__ import division
 
-from math import (isfinite, copysign)
+from math import copysign
 
 inf = float("inf")
 
