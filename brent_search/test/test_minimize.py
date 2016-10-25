@@ -77,4 +77,4 @@ def test_minimize_asymptotic():
 
     (x, _, niters) = minimize(func, a=-10, b=-1e-6)
     assert_almost_equal(x, -1e-06)
-    assert_array_less(niters, 3)
+    assert_array_less(niters, 6)
