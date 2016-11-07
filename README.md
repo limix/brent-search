@@ -1,6 +1,6 @@
 # brent-search
 
-Univariate function optimization implementation of Brent's search.
+Univariate function optimization based on Brent's method.
 
 ## Getting Started
 
