@@ -19,9 +19,10 @@ def setup_package():
 
     metadata = dict(
         name='brent_search',
-        version='1.0.10',
+        version='1.0.11',
         maintainer="Danilo Horta",
         maintainer_email="horta@ebi.ac.uk",
+        description="Univariate function optimization based on Brent's method.",
         license="MIT",
         url='http://github.com/Horta/brent-search',
         packages=find_packages(),
