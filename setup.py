@@ -15,7 +15,7 @@ def setup_package():
 
     setup_requires = pytest_runner
     install_requires = []
-    tests_require = install_requires
+    tests_require = ['pytest']
 
     metadata = dict(
         name='brent_search',
