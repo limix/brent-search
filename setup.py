@@ -14,12 +14,12 @@ def setup_package():
     pytest_runner = ['pytest-runner'] if needs_pytest else []
 
     setup_requires = pytest_runner
-    install_requires = ['six']
+    install_requires = []
     tests_require = install_requires
 
     metadata = dict(
         name='brent_search',
-        version='1.0.8',
+        version='1.0.9',
         maintainer="Danilo Horta",
         maintainer_email="horta@ebi.ac.uk",
         license="MIT",
