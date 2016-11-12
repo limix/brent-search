@@ -5,13 +5,13 @@ inf = float("inf")
 from ._bracket import bracket
 from ._brent import brent
 
-_eps = 1.4901161193847656e-08
+_eps = 1.4902e-08
 
 def minimize(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2,
              rtol=_eps, atol=_eps, maxiter=500):
     r"""Function minimization.
 
-    Applies :any:`brent_search.bracket` and then :any:`brent_search.brent`
+    Applies :func:`brent_search.bracket` and then :func:`brent_search.brent`
     to find the minimum.
 
     Args:
@@ -21,8 +21,8 @@ def minimize(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2,
         a (:obj:`float`, optional): interval's lower limit. Defaults to ``-inf``.
         b (:obj:`float`, optional): interval's upper limit. Defaults to ``+inf``.
         gfactor (:obj:`float`, optional): growing factor.
-        rtol (:obj:`float`, optional): relative tolerance. Defaults to ``1.4901161193847656e-08``.
-        atol (:obj:`float`, optional): absolute tolerance. Defaults to ``1.4901161193847656e-08``.
+        rtol (:obj:`float`, optional): relative tolerance. Defaults to ``1.4902e-08``.
+        atol (:obj:`float`, optional): absolute tolerance. Defaults to ``1.4902e-08``.
         maxiter (:obj:`int`, optional): maximum number of iterations. Defaults to ``500``.
 
     Returns:

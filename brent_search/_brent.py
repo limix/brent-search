@@ -1,9 +1,11 @@
 from __future__ import division
 
-_eps = 1.4901161193847656e-08
+inf = float("inf")
+
+_eps = 1.4902e-08
 _golden = 0.381966011250105097
 
-def brent(f, a, b, fa=None, fb=None, x0=None, f0=None,
+def brent(f, a=-inf, b=+inf, fa=None, fb=None, x0=None, f0=None,
           rtol=_eps, atol=_eps, maxiter=500):
     """Seeks a local minimum of a function f in a closed interval [a, b] via
     Brent's method.
@@ -19,9 +21,10 @@ def brent(f, a, b, fa=None, fb=None, x0=None, f0=None,
 
     Args:
         f (object): Objective function to be minimized.
-        a, b (float): endpoints of the interval a <= b.
-        rtol (float): relative tolerance. Defaults to 1.4901161193847656e-08.
-        atol (float): absolute tolerance. Defaults to 1.4901161193847656e-08.
+        a (:obj:`float`, optional): interval's lower limit. Defaults to ``-inf``.
+        b (:obj:`float`, optional): interval's upper limit. Defaults to ``+inf``.
+        rtol (float): relative tolerance. Defaults to 1.4902e-08.
+        atol (float): absolute tolerance. Defaults to 1.4902e-08.
         maxiter (int): maximum number of iterations
 
 

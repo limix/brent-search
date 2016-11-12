@@ -1,28 +1,8 @@
-"""
-Bracket finder
---------------
-
-Example:
-
-.. doctest::
-
-    >>> from brent_search import bracket
-    >>> def f(x):
-    ...     return (x-2)**2
-    >>>
-    >>> bracket(f)
-    ((1.2499997019767761, 2.499999701976776, 4.999999701976776, 0.5625004470349246, 0.24999970197686494, 8.999998211860746), 1)
-
-bracket
-^^^^^^^
-
-.. autofunction:: bracket
-"""
 from __future__ import division
 
 inf = float("inf")
 
-_eps = 1.4901161193847656e-08
+_eps = 1.4902e-08
 
 def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
             rtol=_eps, atol=_eps, maxiter=500):
@@ -32,12 +12,12 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
     ``(x0, x1, x2)`` such that ``f(x0) > f(x1) < f(x2)``.
 
     Exit code:
-        - ecode: 0 unknown
-        - ecode: 1 found bracket
-        - ecode: 2 hit the boundary
-        - ecode: 3 too close points
-        - ecode: 4 maxiter reached
-        - ecode: 5 not strictly convex function
+        - 0: unknown
+        - 1: found bracket
+        - 2: hit the boundary
+        - 3: too close points
+        - 4: maxiter reached
+        - 5: not strictly convex function
 
     Args:
         f (callable): function of interest.
@@ -46,8 +26,8 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
         a (:obj:`float`, optional): interval's lower limit. Defaults to ``-inf``.
         b (:obj:`float`, optional): interval's upper limit. Defaults to ``+inf``.
         gfactor (:obj:`float`, optional): growing factor.
-        rtol (:obj:`float`, optional): relative tolerance. Defaults to ``1.4901161193847656e-08``.
-        atol (:obj:`float`, optional): absolute tolerance. Defaults to ``1.4901161193847656e-08``.
+        rtol (:obj:`float`, optional): relative tolerance. Defaults to ``1.4902e-08``.
+        atol (:obj:`float`, optional): absolute tolerance. Defaults to ``1.4902e-08``.
         maxiter (:obj:`int`, optional): maximum number of iterations. Defaults to ``500``.
 
     Returns:
