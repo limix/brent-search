@@ -1,3 +1,24 @@
+"""
+Bracket finder
+--------------
+
+Example:
+
+.. doctest::
+
+    >>> from brent_search import bracket
+    >>> def f(x):
+    ...     return (x-2)**2
+    >>>
+    >>> bracket(f)
+    23.3
+
+bracket
+^^^^^^^
+
+.. autofunction:: bracket
+    :members:
+"""
 from __future__ import division
 
 inf = float("inf")
