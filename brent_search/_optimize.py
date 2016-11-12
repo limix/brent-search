@@ -9,6 +9,27 @@ _eps = 1.4901161193847656e-08
 
 def minimize(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2,
              rtol=_eps, atol=_eps, maxiter=500):
+    r"""Function minimization.
+
+    Applies :any:`brent_search.bracket` and then :any:`brent_search.brent`
+    to find the minimum.
+
+    Args:
+        f (callable): function of interest.
+        x0 (float, optional): first point.
+        x1 (float, optional): second point.
+        a (float, optional): interval's lower limit. Defaults to ``-inf``.
+        b (float, optional): interval's upper limit. Defaults to ``+inf``.
+        gfactor (float, optional): growing factor.
+        rtol (float, optional): relative tolerance. Defaults to ``1.4901161193847656e-08``.
+        atol (float, optional): absolute tolerance. Defaults to ``1.4901161193847656e-08``.
+        maxiter (int, optional): maximum number of iterations. Defaults to ``500``.
+
+    Returns:
+        A tuple containing the found solution (if any) in the first position,
+        the function evaluated at that point, and the number of function
+        evaluations.
+    """
 
     def func(x):
         func.nfev += 1
@@ -16,7 +37,7 @@ def minimize(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2,
     func.nfev = 0
 
 
-    r, ecode = bracket(func, x0=x0, x1=x1, a=a, b=b, gfactor=gfactor, rtol=rtol,
+    r, _ = bracket(func, x0=x0, x1=x1, a=a, b=b, gfactor=gfactor, rtol=rtol,
                        atol=atol, maxiter=maxiter)
 
     x0, x1, x2, f0, f1, f2 = r[0], r[1], r[2], r[3], r[4], r[5]
