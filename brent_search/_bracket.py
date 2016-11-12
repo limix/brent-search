@@ -11,7 +11,7 @@ Example:
     ...     return (x-2)**2
     >>>
     >>> bracket(f)
-    23.3
+    ((1.2499997019767761, 2.499999701976776, 4.999999701976776, 0.5625004470349246, 0.24999970197686494, 8.999998211860746), 1)
 
 bracket
 ^^^^^^^
@@ -32,12 +32,12 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
     ``(x0, x1, x2)`` such that ``f(x0) > f(x1) < f(x2)``.
 
     Exit code:
-        ecode: 0 unknown
-        ecode: 1 found bracket
-        ecode: 2 hit the boundary
-        ecode: 3 too close points
-        ecode: 4 maxiter reached
-        ecode: 5 not strictly convex function
+        - ecode: 0 unknown
+        - ecode: 1 found bracket
+        - ecode: 2 hit the boundary
+        - ecode: 3 too close points
+        - ecode: 4 maxiter reached
+        - ecode: 5 not strictly convex function
 
     Args:
         f (callable): function of interest.
