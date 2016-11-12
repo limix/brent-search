@@ -16,14 +16,14 @@ def minimize(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2,
 
     Args:
         f (callable): function of interest.
-        x0 (float, optional): first point.
-        x1 (float, optional): second point.
-        a (float, optional): interval's lower limit. Defaults to ``-inf``.
-        b (float, optional): interval's upper limit. Defaults to ``+inf``.
-        gfactor (float, optional): growing factor.
-        rtol (float, optional): relative tolerance. Defaults to ``1.4901161193847656e-08``.
-        atol (float, optional): absolute tolerance. Defaults to ``1.4901161193847656e-08``.
-        maxiter (int, optional): maximum number of iterations. Defaults to ``500``.
+        x0 (:obj:`float`, optional): first point.
+        x1 (:obj:`float`, optional): second point.
+        a (:obj:`float`, optional): interval's lower limit. Defaults to ``-inf``.
+        b (:obj:`float`, optional): interval's upper limit. Defaults to ``+inf``.
+        gfactor (:obj:`float`, optional): growing factor.
+        rtol (:obj:`float`, optional): relative tolerance. Defaults to ``1.4901161193847656e-08``.
+        atol (:obj:`float`, optional): absolute tolerance. Defaults to ``1.4901161193847656e-08``.
+        maxiter (:obj:`int`, optional): maximum number of iterations. Defaults to ``500``.
 
     Returns:
         A tuple containing the found solution (if any) in the first position,
