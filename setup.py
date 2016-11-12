@@ -3,6 +3,11 @@ import sys
 from setuptools import setup
 from setuptools import find_packages
 
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except(IOError, ImportError):
+    long_description = open('README.md').read()
 
 def setup_package():
     src_path = os.path.dirname(os.path.abspath(sys.argv[0]))
@@ -22,7 +27,8 @@ def setup_package():
         version='1.0.11',
         maintainer="Danilo Horta",
         maintainer_email="horta@ebi.ac.uk",
-        description="Univariate function optimization based on Brent's method.",
+        description="Brent's method for univariate function optimization.",
+        long_description=long_description,
         license="MIT",
         url='http://github.com/Horta/brent-search',
         packages=find_packages(),
