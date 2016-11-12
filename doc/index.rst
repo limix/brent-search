@@ -13,4 +13,3 @@ You can get the source and open issues `on Github.`_
     functions
 
 .. _on Github.: https://github.com/Horta/brent-search
-.. _conda: http://conda.pydata.org/docs/index.html
