@@ -3,6 +3,7 @@
 [![PyPIl](https://img.shields.io/pypi/l/brent-search.svg?style=flat-square)](https://pypi.python.org/pypi/brent-search/)
 [![PyPIv](https://img.shields.io/pypi/v/brent-search.svg?style=flat-square)](https://pypi.python.org/pypi/brent-search/)
 [![Anaconda-Server Badge](https://anaconda.org/conda-forge/ndarray_listener/badges/version.svg)](https://anaconda.org/conda-forge/ndarray_listener)
+[![Documentation Status](https://readthedocs.org/projects/brent-search/badge/?version=latest)](http://brent-search.readthedocs.io/en/latest/?badge=latest)
 
 Brent's method for univariate function optimization.
 
