@@ -9,3 +9,5 @@ You can get the source and open issues `on Github.`_
     :caption: Table of contents
     :name: mastertoc
     :maxdepth: 2
+
+    bracket

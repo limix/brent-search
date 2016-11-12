@@ -17,7 +17,6 @@ bracket
 ^^^^^^^
 
 .. autofunction:: bracket
-    :members:
 """
 from __future__ import division
 
