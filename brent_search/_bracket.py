@@ -1,23 +1,41 @@
 from __future__ import division
 
-from math import copysign
-
 inf = float("inf")
 
 _eps = 1.4901161193847656e-08
 
-def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2,
+def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
             rtol=_eps, atol=_eps, maxiter=500):
+    r"""Find a bracketing interval.
 
+    A bracket is defined as any three strictly increasing points
+    ``(x0, x1, x2)`` such that ``f(x0) > f(x1) < f(x2)``.
+
+    Exit code:
+        ecode: 0 unknown
+        ecode: 1 found bracket
+        ecode: 2 hit the boundary
+        ecode: 3 too close points
+        ecode: 4 maxiter reached
+        ecode: 5 not strictly convex function
+
+    Args:
+        f (callable): function of interest.
+        x0 (float, optional): first point.
+        x1 (float, optional): second point.
+        a (float, optional): interval's lower limit. Defaults to ``-inf``.
+        b (float, optional): interval's upper limit. Defaults to ``+inf``.
+        gfactor (float, optional): growing factor.
+        rtol (float, optional): relative tolerance. Defaults to ``1.4901161193847656e-08``.
+        atol (float, optional): absolute tolerance. Defaults to ``1.4901161193847656e-08``.
+        maxiter (int, optional): maximum number of iterations. Defaults to ``500``.
+
+    Returns:
+        A tuple containing the found solution (if any) in the first position
+        and the exit code in the second position: ``((x0, x1, x2, f0, f1, f2), ecode)``.
+    """
 
     ecode = 0
-
-    # ecode = 0 unknown
-    # ecode = 1 found bracket
-    # ecode = 2 hit the boundary
-    # ecode = 3 too close points
-    # ecode = 4 maxiter reached
-    # ecode = 5 not strictly convex function
 
     assert gfactor > 1
     assert maxiter > 0
@@ -90,9 +108,6 @@ def _boundary_inside(x, a, b):
 
 def _ensure_boundary(x, a, b):
     return max(min(x, b), a)
-
-# def _tol(x0, x1, rtol, atol):
-#     return max(abs(x0), abs(x1)) * rtol + atol
 
 def _tol(x, rtol, atol):
     return abs(x) * rtol + atol
