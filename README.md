@@ -23,7 +23,7 @@ The output should be
 (0.0, -0.8, 6)
 ```
 
-## Installing
+## Install
 
 The recommended way of installing it is via
 [conda](http://conda.pydata.org/docs/index.html)
