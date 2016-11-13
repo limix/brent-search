@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sphinx_rtd_theme
+from __future__ import unicode_literals
+
+__import__('sphinx_rtd_theme')
 
 try:
     import brent_search
