@@ -52,3 +52,7 @@ as long as you have [pytest](http://docs.pytest.org/en/latest/).
 
 This project is licensed under the MIT License - see the
 [LICENSE](LICENSE) file for details
+
+## Links
+
+- [brent_search-feedstock](https://github.com/conda-forge/brent_search-feedstock)
