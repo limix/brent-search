@@ -2,7 +2,7 @@
 
 [![PyPIl](https://img.shields.io/pypi/l/brent-search.svg?style=flat-square)](https://pypi.python.org/pypi/brent-search/)
 [![PyPIv](https://img.shields.io/pypi/v/brent-search.svg?style=flat-square)](https://pypi.python.org/pypi/brent-search/)
-[![Anaconda-Server Badge](https://anaconda.org/conda-forge/brent_search/badges/version.svg)](https://anaconda.org/conda-forge/brent_search)
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/brent-search/badges/version.svg)](https://anaconda.org/conda-forge/brent-search)
 [![Documentation Status](https://readthedocs.org/projects/brent-search/badge/?style=flat-square&version=latest)](http://brent-search.readthedocs.io/en/latest/?badge=latest)
 
 Brent's method for univariate function optimization.
@@ -28,12 +28,12 @@ The output should be
 The recommended way of installing it is via
 [conda](http://conda.pydata.org/docs/index.html)
 ```bash
-conda install -c conda-forge brent_search
+conda install -c conda-forge brent-search
 ```
 
 An alternative way would be via pip
 ```bash
-pip install brent_search
+pip install brent-search
 ```
 
 ## Running the tests
@@ -55,4 +55,4 @@ This project is licensed under the MIT License - see the
 
 ## Links
 
-- [brent_search-feedstock](https://github.com/conda-forge/brent_search-feedstock)
+- [brent-search-feedstock](https://github.com/conda-forge/brent-search-feedstock)

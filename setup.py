@@ -24,8 +24,8 @@ def setup_package():
     tests_require = ['pytest']
 
     metadata = dict(
-        name='brent_search',
-        version='1.0.15',
+        name='brent-search',
+        version='1.0.16dev0',
         maintainer="Danilo Horta",
         maintainer_email="horta@ebi.ac.uk",
         description="Brent's method for univariate function optimization.",
@@ -47,15 +47,6 @@ def setup_package():
             "Operating System :: OS Independent",
         ],
     )
-
-    try:
-        from distutils.command.bdist_conda import CondaDistribution
-    except ImportError:
-        pass
-    else:
-        metadata['distclass'] = CondaDistribution
-        metadata['conda_buildnum'] = 1
-        metadata['conda_features'] = ['mkl']
 
     try:
         setup(**metadata)

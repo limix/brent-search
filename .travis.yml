@@ -1,4 +1,6 @@
 language: python
+git:
+  depth: 5
 matrix:
   include:
   - os: linux
@@ -13,24 +15,7 @@ matrix:
     sudo: false
     dist: trusty
     python: '3.5'
-  - os: osx
-    language: generic
-    env: TRAVIS_PYTHON_VERSION=3.5
-before_install:
-- wget https://raw.githubusercontent.com/Horta/travis-miniconda/master/install.sh
-  -O install.sh
-- chmod +x install.sh
-- travis_retry bash -x ./install.sh
-install:
-- export PATH="$HOME/miniconda/bin:$PATH"
-- source activate travisci
-before_script:
-- export PATH="$HOME/miniconda/bin:$PATH"
-- source activate travisci
-- python setup.py test
 script:
-- export PATH="$HOME/miniconda/bin:$PATH"
-- source activate travisci
 - python setup.py sdist
 - pip install dist/`ls dist | grep -i -E '\.(gz)$' | head -1`
 - pushd /
@@ -44,8 +29,6 @@ notifications:
 deploy:
   provider: pypi
   user: dhorta
-  password:
-    secure: Qtie3QIFY+LRoKw4TXcsruPHQjAS6U0fV1gCPzfw9xv61Oqh+X8GABpXQyb9mFXh+7vOEXvEtSdqrQaNZVbQc71V6RI3ZQLSpW1sSI+vOHzyIwIekOrB7Amr8lkqO990UjcdaU2Y2OCPlKGA72N5gjnxVIWXS9YA71qeQ6TCPSPIKYKVWrq2DMao+B/8iTaYdQPqC50r6totTFEj/m2mWudwF5chX4ndzv1B3jn1ofyyyDA2iCUoGpaImjmwmHxIq7Ujc6LbpXZwOnEbevGa41fJWIRC6ZTxqQdwPL+A4pK0D9mnwbqGqrZWTWf+n3tAWJsMTsO5SdMck55Mympag1iaE46iGN75HXYTpJI9bOCyapCkFrfev4Yw7+ToE5Y6Oy4FTDajnUgmsG2I9e+9gmsKT0Dt43MqRjs++dlwnHHs/t7cTkskZkCx9SRCRJnYadEHRw/aiMivPp3vX4F9/cNPw8E5pQJwdjCRY5g8Oefrac7NuDWR1fog85dmGAu+9nHfSa9MlFyfiIzagzgq0tXkDH1Kw0nH3fqbPxRAnoE/y2UB9dVkTwhEZ/rUmzrN4hU1TQPaYtFeD+KiKktRe1HL8sXdIjMN1Vh7f2Gn4LJdPcUWiezkDamKoBaLl31TVtqHG8/eQ5kyd5YZjRLSwm264BLb7/JdwNZ64vlj96I=
   on:
     distributions: sdist bdist_wheel
-    repo: Horta/brent-search
+    repo: glimix/brent-search
