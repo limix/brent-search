@@ -28,7 +28,10 @@ notifications:
   email: false
 deploy:
   provider: pypi
+  skip_upload_docs: true
   user: dhorta
+  password:
+    secure: YPVr5CQIcpQsiuI7FpNnW6We9Ace5/w4934RC0LzI3Aba117lVW6pPmZI6zfuruuexbGX5F04lE6UEn+K17lm3PhTEjbupfScs36XOFuBVWzOWlzxeAAS5TG3KawZipW1hNqEfHTcHxHzdJvZ/nl/BTaPg7cnoY6gA1HPGkNL0lz8oYvblKCeyhNFSEvojgJsNNc+7o7oQTlYC0EodfJAWhReA2mJCvagSR0KyffoLUibd4NDu9mgoK3HibNjvWMyAjQ8huLbA2k81KRWquT3gKt0tKugn5Vu0IvVgfG+RWgWDFoQPeuiptYypgylj1G+DETW28O3Adh+n2HlFqdxHcvY3b/q3hTG3f+HfdJyAi1l7rlT6JydO346/hNlO1r1sCkhIAaZlTxggbESM0d0LTRqaSinO8DNwrgz17OzO0a7y+d4YdzkTV3L+YHdtz3Shf1vVGF5gRHrJDUTpg2RF34EclzCXTTNFijjxOb0okJgD9ABKSlO0kUeJNv3JD70t2jIO33+tZYQunTcWhpjrB4UjUiFqCl3htG6r3P0obCHQ3QusKkAbRTvpMGVKvtb/l8o6ip5+rHA5giNtEA2qDmZiGJdqLaC/hlw0m/bUEDfhzsaorsZ1CxPN7c9vx4BA98qhqXb9l7yYoEwgjxJa5u+EnDwHYXM9G5xR4zjNw=
   on:
     distributions: sdist bdist_wheel
     repo: glimix/brent-search
