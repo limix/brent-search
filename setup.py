@@ -7,7 +7,7 @@ from setuptools import find_packages
 try:
     import pypandoc
     long_description = pypandoc.convert('README.md', 'rst')
-except(IOError, ImportError):
+except(OSError, IOError, ImportError):
     long_description = open('README.md').read()
 
 def setup_package():
@@ -31,7 +31,7 @@ def setup_package():
         description="Brent's method for univariate function optimization.",
         long_description=long_description,
         license="MIT",
-        url='http://github.com/Horta/brent-search',
+        url='http://github.com/glimix/brent-search',
         packages=find_packages(),
         zip_safe=True,
         include_package_data=True,
