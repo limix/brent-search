@@ -14,10 +14,10 @@ def brent(f, a=-inf, b=+inf, fa=None, fb=None, x0=None, f0=None,
     seeks a local minima using a combination of golden section search and
     successive parabolic interpolation.
 
-    Let ```tol = rtol * abs(x0) + atol```, where ```x0``` is the best guess
+    Let ``tol = rtol * abs(x0) + atol``, where ``x0`` is the best guess
     found so far. It converges if evaluating a next guess would imply
-    evaluating ```f``` at a point that is closer than ```tol``` to a previously
-    evaluated one or if the number of iterations reaches ```maxiter```.
+    evaluating ``f`` at a point that is closer than ``tol`` to a previously
+    evaluated one or if the number of iterations reaches ``maxiter``.
 
     Args:
         f (object): Objective function to be minimized.
