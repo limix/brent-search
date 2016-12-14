@@ -1,30 +1,23 @@
 language: python
+sudo: required
+dist: trusty
 git:
   depth: 5
 matrix:
   include:
   - os: linux
-    sudo: false
-    dist: trusty
     python: '2.7'
   - os: linux
-    sudo: false
-    dist: trusty
-    python: '3.4'
-  - os: linux
-    sudo: false
-    dist: trusty
     python: '3.5'
 script:
 - pip install pypandoc
+- python -c "from pypandoc import download_pandoc as dp; dp(targetfolder='~/bin/');"
+- export PATH=~/bin:$PATH
 - python setup.py sdist
 - pip install dist/`ls dist | grep -i -E '\.(gz)$' | head -1`
 - pushd /
 - python -c "import brent_search; brent_search.test()"
 - popd
-branches:
-  only:
-  - master
 notifications:
   email: false
 deploy:
