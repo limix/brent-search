@@ -25,7 +25,7 @@ def setup_package():
 
     metadata = dict(
         name='brent-search',
-        version='1.0.17.dev3',
+        version='1.0.17',
         maintainer="Danilo Horta",
         maintainer_email="horta@ebi.ac.uk",
         description="Brent's method for univariate function optimization.",
