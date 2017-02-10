@@ -1,9 +1,7 @@
 # brent-search
 
-[![PyPIl](https://img.shields.io/pypi/l/brent-search.svg?style=flat-square)](https://pypi.python.org/pypi/brent-search/)
-[![PyPIv](https://img.shields.io/pypi/v/brent-search.svg?style=flat-square)](https://pypi.python.org/pypi/brent-search/)
-[![Anaconda-Server Badge](https://anaconda.org/conda-forge/brent-search/badges/version.svg)](https://anaconda.org/conda-forge/brent-search)
-[![Documentation Status](https://readthedocs.org/projects/brent-search/badge/?style=flat-square&version=latest)](https://brent-search.readthedocs.io/en/latest/)
+[![PyPI-License](https://img.shields.io/pypi/l/brent-search.svg?style=flat-square)](https://pypi.python.org/pypi/brent-search/)
+[![PyPI-Version](https://img.shields.io/pypi/v/brent-search.svg?style=flat-square)](https://pypi.python.org/pypi/brent-search/) [![Anaconda-Version](https://anaconda.org/conda-forge/brent-search/badges/version.svg)](https://anaconda.org/conda-forge/brent-search) [![Anaconda-Downloads](https://anaconda.org/conda-forge/brent-search/badges/downloads.svg)](https://anaconda.org/conda-forge/brent-search) [![Documentation Status](https://readthedocs.org/projects/brent-search/badge/?style=flat-square&version=latest)](https://brent-search.readthedocs.io/en/latest/)
 
 Brent's method for univariate function optimization.
 
