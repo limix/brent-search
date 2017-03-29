@@ -31,7 +31,7 @@ def setup_package():
         description="Brent's method for univariate function optimization.",
         long_description=long_description,
         license="MIT",
-        url='http://github.com/glimix/brent-search',
+        url='http://github.com/limix/brent-search',
         packages=find_packages(),
         zip_safe=True,
         include_package_data=True,

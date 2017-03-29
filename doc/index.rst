@@ -4,7 +4,7 @@ Brent-search's documentation
 
 You can get the source and open issues `on Github.`_
 
-.. _on Github.: https://github.com/glimix/brent-search
+.. _on Github.: https://github.com/limix/brent-search
 
 -------
 Install
