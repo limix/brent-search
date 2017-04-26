@@ -2,8 +2,6 @@
 
 from __future__ import unicode_literals
 
-__import__('sphinx_rtd_theme')
-
 try:
     import brent_search
     version = brent_search.__version__
@@ -30,8 +28,7 @@ language = None
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 pygments_style = 'sphinx'
 todo_include_todos = False
-html_theme = 'sphinx_rtd_theme'
-html_theme_path = ["_themes", ]
+html_theme = 'default'
 htmlhelp_basename = 'brent-searchdoc'
 latex_elements = {}
 latex_documents = [
