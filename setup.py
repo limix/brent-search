@@ -1,14 +1,14 @@
 import os
 import sys
 
-from setuptools import setup
-from setuptools import find_packages
+from setuptools import find_packages, setup
 
 try:
     import pypandoc
-    long_description = pypandoc.convert('README.md', 'rst')
-except(OSError, IOError, ImportError):
+    long_description = pypandoc.convert_file('README.md', 'rst')
+except (OSError, IOError, ImportError):
     long_description = open('README.md').read()
+
 
 def setup_package():
     src_path = os.path.dirname(os.path.abspath(sys.argv[0]))
@@ -25,7 +25,7 @@ def setup_package():
 
     metadata = dict(
         name='brent-search',
-        version='1.0.17',
+        version='1.0.18',
         maintainer="Danilo Horta",
         maintainer_email="horta@ebi.ac.uk",
         description="Brent's method for univariate function optimization.",
@@ -43,15 +43,16 @@ def setup_package():
             "License :: OSI Approved :: MIT License",
             "Programming Language :: Python :: 2.7",
             "Programming Language :: Python :: 3.5",
+            "Programming Language :: Python :: 3.6",
             "Operating System :: OS Independent",
-        ],
-    )
+        ], )
 
     try:
         setup(**metadata)
     finally:
         del sys.path[0]
         os.chdir(old_path)
+
 
 if __name__ == '__main__':
     setup_package()
