@@ -1,30 +1,48 @@
 language: python
 sudo: required
 dist: trusty
+services: docker
 git:
   depth: 5
+cache:
+  pip: true
+  directories:
+  - "$HOME/bin"
+  - "$HOME/.download"
 matrix:
   include:
-  - os: linux
-    python: '2.7'
-  - os: linux
-    python: '3.5'
+  - python: 2.7
+  - python: 3.5
+  - python: 3.6
+  - env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+  - os: osx
+    language: generic
+    env: PYENV=py27
+  - os: osx
+    language: generic
+    env: PYENV=py35
+  - os: osx
+    language: generic
+    env: PYENV=py36
+before_install:
+- travis_retry bash <(curl -s https://raw.githubusercontent.com/limix/travis-tools/master/get-travis-tools.sh)
+- travis_retry travis/before-install.sh
 script:
-- pip install pypandoc
-- python -c "from pypandoc import download_pandoc as dp; dp(targetfolder='~/bin/');"
-- export PATH=~/bin:$PATH
-- python setup.py sdist
-- pip install dist/`ls dist | grep -i -E '\.(gz)$' | head -1`
-- pushd /
-- python -c "import brent_search; brent_search.test()"
-- popd
+- travis_retry travis/script.sh
+after_success:
+- travis_retry travis/after-success.sh
 notifications:
   email: false
 deploy:
   provider: pypi
   user: dhorta
   password:
-    secure: EXTDXz3TYRprUe8FI12YC/kiZAIxsqQr3QStsoSmhbdp4LAn+tUFtNnUH3C5PylQHBlQi14K6NTfVF2MXGHJ/kMQLuwVSYARucn5cXWgQ88mEee12PH95qc4rqbCL5K2i79TTUH6Nf3ddC7BnRtxfTTJPSMbMv/xtGDV1jXmo+lmJXLzyxz+ZQ24Wj1LmvnLphExrXVcdsaJul680htdYXmCjgXLZ0nIn3wTDuB3YQpt/QItamE1ObqYUSxEGdKkFYdW8/bT+M7LB/XwBY3ezJNz6On7gQo0rOwqL5oXQir7MpSZee20OS5Q3hkyWsUtPwib7NQiocmInLwiZcXq/jxWM17HxV0dCj9brPtxv3iS3+rF4/HSRtcrcQ/SwYq9AYbpps09ecx1k57MoEXw5xhSIqYg9BHPRGwCTHcDg9QRZrpfTDPLvwDTDF46em1uLJuzomkclKQfttzp9/U2IBZ789PTVgcXBcqo6lUt7lHMhB8gg7kMf4xgdTJgzokVfbK9yRT93GbOQTUB39JaXBzwHbHBeqqRx6Msc1qCie5SvOja5H7II3j4SRD6yjVi7MLjnn+AVEbqdK6AuZqlbIEAFZ3YGdN82JDWsCi8KVePIYQW6brr4P3xZJCEmfJoUsywCfkgDXP23iH9MQh6EQe3wRD2ME0BIMCKTsxudGs=
+    secure: UX3Ak7fCQRLZMppAEdL9pCVBQj3q2r971388s5+m0bt4lIrBBDGDV7F2Wrzu9hNcHS8GPqFhXTliAdKJqWNex97FcYhNW6GK3UXfAMRBJu4UtLUWqf1Twa6tqAneJfs/xKWcm8pELx/P2xkTKaZieylZ+hdFXYF0TITbsOtRDGIL6IEhTicxhMjOgQNxK4c4u0eLxQY3HX3f90Jn2WXpDAuijObnTUYdeKbjytdv9He079Kz/Y0tCCqzny5E686q2vSU96MU/R5gABuBak+peN63Xx04W6e9wmhkWZ0dvP6raxdueipQouadbOTuIdvhJh5/71Ojzx5V9p2761eRs8isd9a86zv7ghfMzk0eYiBc6qa4VpLqDDZolOaZfuy/S2PIJcSB1R8+BAx29fYAoqFUUhVt4uzEk9HHB5cz1HzEeZrqTEZGWAHHvm+hjH8cTnRo5LV1uMUL7rbM6X93bVY+C+4btc4xVJDgKJLoUC0XTwz36TclhI/EmwxPoYUAZb/92KjQun/f4QyO82dEVNqI/NCfTjAv88nwePeHL8zZR50T8HhuHA4rWUnMcA4zbu66WEd0UScmIyqrVwiw/uFK/zwZZZRPO/KdQgyLYKNha5WFTkC23GnklAvq2A9fvlpHjkdUbOh9mmc64Dzv+fR2w2igTOYHZHgfXTY9iGk=
   on:
-    distributions: sdist bdist_wheel
-    repo: glimix/brent-search
+    tags: true
+    repo: limix/brent-search
+    branch: master
+env:
+  global:
+    - secure: rXrd3wQXHXqsRapOmtv6A3ny/XANi6VOZYOQQs5Bc4D2drTbmWHemIHsmmNHuAmCrMsRWUjwQebxyCph+EAbl72FsCyHWfQpCeQELDEBMy2tLz256NpXzwuR3a0TE8Gp4J3QPMk2/493yve1hj9yDHZ8vykLHPYQ9lFvakfyLP0iDExXau6bpLT4Rd+SPaX7soOY14ALiUduYt4iNyBqrKgSQhuapsmPtEm8T10MUWy0CT4ErUC6ImyTewHnjsdqqHTofmFwxjGLYYTsC+PGyno7B6ki9s91zefSeXZXLHZBBL6GaYkzJrV9IChAJloRtucyWBYYMXiUWMr8L/0sM6kEKwsMwEjU36uysCZaITC4Q5Acl4oGI+WGnVSJ3TVu7CP9oX8p46EZdW2C5xM/S6m/T42Uv7sghuSDzsoveyW7TSyw5gcqu6pxdwrtDcYDY8RYrtZZV+8Tl7MONqXhheM2EII6O40awdBaVpNzvmN9/VI25aYL7UUFbqm8OePyEVRzuFuwyjlxVGINqMBxjlbYTGp/PPstRn1x5UcaeqgrUo1BN2d9l0La16TCJ3/8j2JzuT1sm2yW7BdTDmd/etRxtYjHdNduUySVegpMzOHmVS1O23lD9CyjuBDOb8Lsuxd9ffYlSStoxyxFRE8JCGRlTMI+nx4v+UUi7Ntsh6A=
+    - PKG_NAME=brent_search
