@@ -1,6 +1,6 @@
 from __future__ import division
 
-from numpy.testing import (assert_almost_equal, assert_array_less, assert_)
+from numpy.testing import (assert_almost_equal, assert_array_less)
 
 from brent_search import minimize
 

@@ -4,8 +4,16 @@ inf = float("inf")
 
 _eps = 1.4902e-08
 
-def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
-            rtol=_eps, atol=_eps, maxiter=500):
+
+def bracket(f,
+            x0=None,
+            x1=None,
+            a=-inf,
+            b=+inf,
+            gfactor=2.,
+            rtol=_eps,
+            atol=_eps,
+            maxiter=500):
     r"""Find a bracketing interval.
 
     A bracket is defined as any three strictly increasing points
@@ -37,8 +45,11 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
 
     ecode = 0
 
-    assert gfactor > 1
-    assert maxiter > 0
+    if gfactor <= 1:
+        raise ValueError("'gfactor' must be greater than 1")
+
+    if maxiter < 1:
+        raise ValueError("'maxiter' must be equal or greater than 1")
 
     x0, x1 = _initialize_interval(x0, x1, a, b, gfactor, rtol, atol)
 
@@ -56,10 +67,17 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
     if f0 == f1:
         return _resolve_equal_fvalue(f, x0, x1, f0, f1)
 
-    assert a <= x0 <= b
-    assert a <= x1 <= b
-    assert x0 != x1
-    assert f0 != f1
+    if not (a <= x0 <= b):
+        raise RuntimeError("'x0' didn't fall in-between 'a' and 'b'")
+
+    if not (a <= x1 <= b):
+        raise RuntimeError("'x1' didn't fall in-between 'a' and 'b'")
+
+    if x0 == x1:
+        raise RuntimeError("'x0' and 'x1' must be different")
+
+    if f0 == f1:
+        raise RuntimeError("'f0' and 'f1' must be different")
 
     if _boundary_equal(x1, a, b):
         x2 = x1
@@ -74,7 +92,7 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
         return _resolve_equal_fvalue(f, x1, x2, f1, f2)
 
     nit = 0
-    while not(f0 > f1 < f2) and nit < maxiter and _boundary_inside(x2, a, b):
+    while not (f0 > f1 < f2) and nit < maxiter and _boundary_inside(x2, a, b):
         nit += 1
 
         xt = _ensure_boundary(x2 + gfactor * (x2 - x1), a, b)
@@ -94,23 +112,29 @@ def bracket(f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.,
     ecode = 2
     return _sort(x0, x1, x2, f0, f1, f2), ecode
 
+
 def _sort(x0, x1, x2, f0, f1, f2):
     if x0 > x2:
         x0, x1, x2 = x2, x1, x0
         f0, f1, f2 = f2, f1, f0
     return x0, x1, x2, f0, f1, f2
 
+
 def _boundary_equal(x, a, b):
     return x == a or x == b
+
 
 def _boundary_inside(x, a, b):
     return a < x < b
 
+
 def _ensure_boundary(x, a, b):
     return max(min(x, b), a)
 
+
 def _tol(x, rtol, atol):
     return abs(x) * rtol + atol
+
 
 def _initialize_interval(x0, x1, a, b, gfactor, rtol, atol):
     x = sorted([xi for xi in [x0, x1] if xi is not None])
@@ -132,12 +156,13 @@ def _initialize_interval(x0, x1, a, b, gfactor, rtol, atol):
 
     return x0, x1
 
+
 def _resolve_equal_fvalue(f, x0, x1, f0, f1):
-    x2 = x0/2 + x1/2
+    x2 = x0 / 2 + x1 / 2
     f2 = f(x2)
     x2, x1 = x1, x2
     f2, f1 = f1, f2
-    if not(f0 > f1 < f2):
+    if not (f0 > f1 < f2):
         ecode = 5
     else:
         ecode = 1

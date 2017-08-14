@@ -5,8 +5,17 @@ inf = float("inf")
 _eps = 1.4902e-08
 _golden = 0.381966011250105097
 
-def brent(f, a=-inf, b=+inf, fa=None, fb=None, x0=None, f0=None,
-          rtol=_eps, atol=_eps, maxiter=500):
+
+def brent(f,
+          a=-inf,
+          b=+inf,
+          fa=None,
+          fb=None,
+          x0=None,
+          f0=None,
+          rtol=_eps,
+          atol=_eps,
+          maxiter=500):
     """Seeks a local minimum of a function f in a closed interval [a, b] via
     Brent's method.
 
@@ -58,12 +67,15 @@ def brent(f, a=-inf, b=+inf, fa=None, fb=None, x0=None, f0=None,
     # References: Numerical Recipes: The Art of Scientific Computing
     # http://people.sc.fsu.edu/~jburkardt/c_src/brent/brent.c
 
-    assert a <= b
+    if a > b:
+        raise ValueError("'a' must be equal or smaller than 'b'")
+
     if x0 is None:
         x0 = a + _golden * (b - a)
         f0 = f(x0)
     else:
-        assert a <= x0 <= b
+        if not (a <= x0 <= b):
+            raise RuntimeError("'x0' didn't fall in-between 'a' and 'b'")
 
     x1 = x0
     x2 = x1
@@ -101,7 +113,7 @@ def brent(f, a=-inf, b=+inf, fa=None, fb=None, x0=None, f0=None,
             p = (x0 - x2) * q - (x0 - x1) * r
             q = 2.0 * (q - r)
             if 0.0 < q:
-                p = - p
+                p = -p
             q = abs(q)
             r = e
             e = d
@@ -116,7 +128,7 @@ def brent(f, a=-inf, b=+inf, fa=None, fb=None, x0=None, f0=None,
                 if x0 < m:
                     d = tol
                 else:
-                    d = - tol
+                    d = -tol
         else:
             # Take the golden-section step.
             if x0 < m:
