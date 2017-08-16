@@ -1,16 +1,7 @@
-from __future__ import absolute_import as _absolute_import
+from .bracket import bracket
+from .brent import brent
+from .optimize import minimize
 
-from pkg_resources import get_distribution as _get_distribution
-from pkg_resources import DistributionNotFound as _DistributionNotFound
-
-try:
-    __version__ = _get_distribution('brent_search').version
-except _DistributionNotFound:
-    __version__ = 'unknown'
-
-from ._brent import brent
-from ._bracket import bracket
-from ._optimize import minimize
 
 def test():
     import os
@@ -28,3 +19,6 @@ def test():
         print("Congratulations. All tests have passed!")
 
     return return_code
+
+
+__all__ = ["test", "bracket", "brent", "minimize"]

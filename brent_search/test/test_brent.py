@@ -1,8 +1,8 @@
 from __future__ import division
 
-from numpy.testing import (assert_almost_equal, assert_array_less, assert_)
-
 from brent_search import brent
+from numpy.testing import assert_, assert_almost_equal, assert_array_less
+
 
 def test_strictly_convex():
     def func(x, s):
@@ -31,9 +31,9 @@ def test_strictly_convex():
     assert_almost_equal(fx, func(99, 5), decimal=4)
     assert_array_less(niters, 36)
 
-    (x, fx, niters) = brent(lambda x: func(x, 5), -1, -1/2)
-    assert_almost_equal(x, -1/2)
-    assert_almost_equal(fx, func(-1/2, 5), decimal=4)
+    (x, fx, niters) = brent(lambda x: func(x, 5), -1, -1 / 2)
+    assert_almost_equal(x, -1 / 2)
+    assert_almost_equal(fx, func(-1 / 2, 5), decimal=4)
     assert_array_less(niters, 35)
 
     (x, fx, niters) = brent(lambda x: func(x, 5), 6.5, 6.5)
@@ -45,6 +45,7 @@ def test_strictly_convex():
     assert_almost_equal(x, 6)
     assert_almost_equal(fx, func(6, 5), decimal=4)
     assert_array_less(niters, 37)
+
 
 def test_convex():
     def func(x, s):
@@ -59,9 +60,10 @@ def test_convex():
     assert_almost_equal(x, -9)
     assert_array_less(niters, 37)
 
+
 def test_asymptotic():
     def func(x):
-        return -3 + 1/x
+        return -3 + 1 / x
 
     (x, _, niters) = brent(func, 1e-6, +10, rtol=1e-9)
     assert_almost_equal(x, 10)
@@ -71,12 +73,15 @@ def test_asymptotic():
     assert_almost_equal(x, -1e-06)
     assert_array_less(niters, 42)
 
+
 def test_same_point():
     def func(x):
         return x**2
+
     (x, _, niters) = brent(func, 1.2, 1.2)
     assert_array_less(niters, 2)
     assert_almost_equal(x, 1.2)
+
 
 def test_piecewise_convex():
     def func(x):
@@ -87,21 +92,21 @@ def test_piecewise_convex():
         return 1
 
     (x, fx, niters) = brent(func, -10, +10)
-    assert_(-1-1e6 <= x <= 1+1e6)
+    assert_(-1 - 1e6 <= x <= 1 + 1e6)
     assert_almost_equal(fx, 1)
     assert_array_less(niters, 45)
 
-    (x, fx, niters) = brent(func, 1/2, +1)
-    assert_(-1-1e6 <= x <= 1+1e6)
+    (x, fx, niters) = brent(func, 1 / 2, +1)
+    assert_(-1 - 1e6 <= x <= 1 + 1e6)
     assert_almost_equal(fx, 1)
     assert_array_less(niters, 35)
 
-    (x, fx, niters) = brent(func, -1, -1/2)
-    assert_(-1-1e6 <= x <= 1+1e6)
+    (x, fx, niters) = brent(func, -1, -1 / 2)
+    assert_(-1 - 1e6 <= x <= 1 + 1e6)
     assert_almost_equal(fx, 1)
     assert_array_less(niters, 35)
 
-    (x, fx, niters) = brent(func, -1/2, +1/2)
-    assert_(-1-1e6 <= x <= 1+1e6)
+    (x, fx, niters) = brent(func, -1 / 2, +1 / 2)
+    assert_(-1 - 1e6 <= x <= 1 + 1e6)
     assert_almost_equal(fx, 1)
     assert_array_less(niters, 37)
