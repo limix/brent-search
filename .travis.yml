@@ -27,8 +27,8 @@ matrix:
 before_install:
 - travis_retry bash <(curl -s https://raw.githubusercontent.com/limix/travis-tools/master/get-travis-tools.sh)
 - travis_retry travis/before-install.sh
-script:
-- travis_retry travis/script.sh
+install:
+- travis_retry travis/install.sh
 after_success:
 - travis_retry travis/after-success.sh
 notifications:
