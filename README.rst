@@ -1,11 +1,8 @@
 brent-search
 ============
 
-|PyPI-Status| |PyPI-Versions| |Conda-Forge-Status|
-
-|Build-Status| |Codacy-Grade|
-
-|LICENCE|
+|PyPI-Status| |PyPI-Versions| |Conda-Forge-Status| |Build-Status|
+|Codacy-Grade| |LICENCE|
 
 Brent's method for univariate function optimization.
 
