@@ -38,6 +38,8 @@ conda_
 
     conda install -c conda-forge brent-search
 
+An alternative way would be via pip_
+
 .. code:: bash
 
     pip install brent-search
@@ -93,3 +95,5 @@ LICENSE_ file for details.
 .. _Danilo Horta: https://github.com/horta
 
 .. _conda: http://conda.pydata.org/docs/index.html
+
+.. _pip: https://pypi.python.org/pypi/pip
