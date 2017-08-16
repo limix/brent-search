@@ -1,9 +1,7 @@
 brent-search
 ============
 
-|PyPI-Status| |PyPI-Versions|
-
-|Conda-Forge-Status| |Conda-Downloads|
+|PyPI-Status| |PyPI-Versions| |Conda-Forge-Status| |Conda-Downloads|
 
 |Build-Status| |Codacy-Grade| |LICENCE|
 
