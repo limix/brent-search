@@ -64,11 +64,11 @@ License
 This project is licensed under the MIT License - see the
 LICENSE_ file for details.
 
-.. |Build-Status| image:: https://travis-ci.org/brent-search/brent-search.svg?branch=master
+.. |Build-Status| image:: https://travis-ci.org/limix/brent-search.svg?branch=master
     :target: https://travis-ci.org/brent-search/brent-search
 
-.. |Codacy-Grade| image:: https://api.codacy.com/project/badge/Grade/3f965571598f44549c7818f29cdcf177
-    :target: https://www.codacy.com/app/brent-search/brent-search?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=brent-search/brent-search&amp;utm_campaign=Badge_Grade
+.. |Codacy-Grade| image:: https://api.codacy.com/project/badge/Grade/259a10b874124d91bccf61e516522607
+    :target: https://www.codacy.com/app/danilo.horta/brent-search?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=limix/brent-search&amp;utm_campaign=Badge_Grade
 
 .. |PyPI-Status| image:: https://img.shields.io/pypi/v/brent-search.svg
     :target: https://pypi.python.org/pypi/brent-search
