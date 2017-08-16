@@ -1,0 +1,93 @@
+brent-search
+============
+
+|PyPI-Status| |PyPI-Versions| |Conda-Forge-Status|
+
+|Build-Status| |Codacy-Grade|
+
+|LICENCE|
+
+Brent's method for univariate function optimization.
+
+Example
+-------
+
+.. code:: python
+
+    from brent_search import brent
+
+    def func(x, s):
+      return (x - s)**2 - 0.8
+
+    r = brent(lambda x: func(x, 0), -10, 10)
+    print(r)
+
+The output should be
+
+.. code::
+
+    (0.0, -0.8, 6)
+
+Install
+-------
+
+The recommended way of installing it is via
+[conda](http://conda.pydata.org/docs/index.html)
+
+.. code:: bash
+
+    conda install -c conda-forge brent-search
+
+.. code:: bash
+
+    pip install brent-search
+
+Running the tests
+-----------------
+
+After installation, you can test it
+
+.. code:: bash
+
+    python -c "import brent_search; brent_search.test()"
+
+as long as you have [pytest](http://docs.pytest.org/en/latest/).
+
+Authors
+-------
+
+* `Danilo Horta`_
+
+License
+-------
+
+This project is licensed under the MIT License - see the
+LICENSE_ file for details.
+
+.. |Build-Status| image:: https://travis-ci.org/brent-search/brent-search.svg?branch=master
+    :target: https://travis-ci.org/brent-search/brent-search
+
+.. |Codacy-Grade| image:: https://api.codacy.com/project/badge/Grade/3f965571598f44549c7818f29cdcf177
+    :target: https://www.codacy.com/app/brent-search/brent-search?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=brent-search/brent-search&amp;utm_campaign=Badge_Grade
+
+.. |PyPI-Status| image:: https://img.shields.io/pypi/v/brent-search.svg
+    :target: https://pypi.python.org/pypi/brent-search
+
+.. |PyPI-Downloads| image:: https://img.shields.io/pypi/dm/brent-search.svg
+    :target: https://pypi.python.org/pypi/brent-search
+
+.. |PyPI-Versions| image:: https://img.shields.io/pypi/pyversions/brent-search.svg
+    :target: https://pypi.python.org/pypi/brent-search
+
+.. |Conda-Forge-Status| image:: https://anaconda.org/conda-forge/brent-search/badges/version.svg
+    :target: https://anaconda.org/conda-forge/brent-search
+
+.. |LICENCE| image:: https://img.shields.io/pypi/l/brent-search.svg
+    :target: https://raw.githubusercontent.com/brent-search/brent-search/master/LICENCE
+
+.. |PyTest| image:: http://docs.pytest.org/en/latest/
+    :target: http://docs.pytest.org/en/latest/
+
+.. _LICENSE: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE
+
+.. _Danilo Horta: https://github.com/horta
