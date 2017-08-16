@@ -76,9 +76,6 @@ LICENSE_ file for details.
 .. |PyPI-Downloads| image:: https://img.shields.io/pypi/dm/brent-search.svg
     :target: https://pypi.python.org/pypi/brent-search
 
-.. |PyPI-Downloads| image:: https://img.shields.io/pypi/dm/brent-search.svg
-    :target: https://pypi.python.org/pypi/brent-search
-
 .. |PyPI-Versions| image:: https://img.shields.io/pypi/pyversions/brent-search.svg
     :target: https://pypi.python.org/pypi/brent-search
 
