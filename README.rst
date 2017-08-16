@@ -29,8 +29,7 @@ The output should be
 Install
 -------
 
-The recommended way of installing it is via
-conda_
+The recommended way of installing it is via conda_
 
 .. code:: bash
 
