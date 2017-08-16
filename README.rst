@@ -50,7 +50,7 @@ After installation, you can test it
 
     python -c "import brent_search; brent_search.test()"
 
-as long as you have [pytest](http://docs.pytest.org/en/latest/).
+as long as you have pytest_.
 
 Authors
 -------
@@ -94,3 +94,5 @@ LICENSE_ file for details.
 .. _conda: http://conda.pydata.org/docs/index.html
 
 .. _pip: https://pypi.python.org/pypi/pip
+
+.. _pytest: http://docs.pytest.org/en/latest/
