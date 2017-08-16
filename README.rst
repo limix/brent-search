@@ -32,7 +32,7 @@ Install
 -------
 
 The recommended way of installing it is via
-[conda](http://conda.pydata.org/docs/index.html)
+conda_
 
 .. code:: bash
 
@@ -91,3 +91,5 @@ LICENSE_ file for details.
 .. _LICENSE: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE
 
 .. _Danilo Horta: https://github.com/horta
+
+.. _conda: http://conda.pydata.org/docs/index.html
