@@ -29,6 +29,8 @@ before_install:
 - travis_retry travis/before-install.sh
 install:
 - travis_retry travis/install.sh
+script:
+- travis_retry travis/script.sh
 after_success:
 - travis_retry travis/after-success.sh
 notifications:
