@@ -1,8 +1,8 @@
 from __future__ import division
 
-from numpy.testing import (assert_almost_equal, assert_array_less)
-
 from brent_search import minimize
+from numpy.testing import assert_almost_equal, assert_array_less
+
 
 def test_minimize_strictly_convex_up():
     def func(x, s):
@@ -27,6 +27,7 @@ def test_minimize_strictly_convex_up():
     assert_almost_equal(x, 0)
     assert_almost_equal(fx, -0.8)
     assert_array_less(nfev, 8)
+
 
 def test_minimize_strictly_convex_down():
     def func(x, s):
@@ -67,9 +68,10 @@ def test_minimize_strictly_convex_equal():
     assert_almost_equal(fx, func(+10, 0))
     assert_array_less(nfev, 3)
 
+
 def test_minimize_asymptotic():
     def func(x):
-        return -3 + 1/x
+        return -3 + 1 / x
 
     (x, _, niters) = minimize(func, a=1e-6, b=+10, rtol=1e-9)
     assert_almost_equal(x, 10)

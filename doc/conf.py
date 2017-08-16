@@ -2,11 +2,7 @@
 
 from __future__ import unicode_literals
 
-try:
-    import brent_search
-    version = brent_search.__version__
-except ImportError:
-    version = 'unknown'
+import sphinx_rtd_theme
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -23,26 +19,23 @@ master_doc = 'index'
 project = 'brent-search'
 copyright = '2016, Danilo Horta'
 author = 'Danilo Horta'
-release = version
 language = None
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 pygments_style = 'sphinx'
 todo_include_todos = False
-html_theme = 'default'
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 htmlhelp_basename = 'brent-searchdoc'
 latex_elements = {}
 latex_documents = [
     (master_doc, 'brent-search.tex', 'brent-search Documentation',
      'Danilo Horta', 'manual'),
 ]
-man_pages = [
-    (master_doc, 'brent-search', 'brent-search Documentation',
-     [author], 1)
-]
+man_pages = [(master_doc, 'brent-search', 'brent-search Documentation',
+              [author], 1)]
 texinfo_documents = [
-    (master_doc, 'brent-search', 'brent-search Documentation',
-     author, 'brent-search', 'One line description of project.',
-     'Miscellaneous'),
+    (master_doc, 'brent-search', 'brent-search Documentation', author,
+     'brent-search', 'One line description of project.', 'Miscellaneous'),
 ]
 intersphinx_mapping = {
     'python': ('http://docs.python.org/', None),
