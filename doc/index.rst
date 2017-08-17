@@ -2,6 +2,9 @@
 Brent-search's documentation
 ============================
 
+:Date: |today|
+:Version: |version|
+
 You can get the source and open issues `on Github.`_
 
 .. _on Github.: https://github.com/limix/brent-search
