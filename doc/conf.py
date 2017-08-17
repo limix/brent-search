@@ -11,11 +11,10 @@ except ImportError:
     from ConfigParser import ConfigParser
 
 
-
 def get_metadata():
     config = ConfigParser()
     config.read('setup.cfg')
-    return dict(config['metadata'])
+    return dict(config.items('metadata'))
 
 
 def get_version(metadata):

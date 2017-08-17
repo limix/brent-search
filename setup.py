@@ -55,7 +55,7 @@ def setup_package():
 
         config = ConfigParser()
         config.read('setup.cfg')
-        metadata = dict(config['metadata'])
+        metadata = dict(config.items('metadata'))
 
         set_names(metadata)
         set_version(metadata)
