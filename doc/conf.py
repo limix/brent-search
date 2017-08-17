@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 
 import re
+from importlib import import_module
+from os import getenv
 from os.path import dirname, join, realpath
 from time import strftime
 
@@ -13,22 +15,43 @@ except ImportError:
 
 
 def get_metadata():
-
     config = ConfigParser()
-    dir_path = dirname(realpath(__file__))
-    config.read(join(dir_path, '..', 'setup.cfg'))
+    config.read('setup.cfg')
     return dict(config.items('metadata'))
 
 
-def get_version(metadata):
-    expr = re.compile(r"__version__ *= *\"(.*)\"")
+def get_init_metadata(expr):
+    metadata = get_metadata()
     prjname = metadata['packages'][0]
     data = open(join(prjname, "__init__.py")).read()
     return re.search(expr, data).group(1)
 
 
-metadata = get_metadata()
-version = get_version(metadata)
+def get_version(metadata):
+    return get_init_metadata(re.compile(r"__version__ *= *\"(.*)\""))
+
+
+def get_author(metadata):
+    return get_init_metadata(re.compile(r"__author__ *= *\"(.*)\""))
+
+
+def get_name(metadata):
+    return get_init_metadata(re.compile(r"__name__ *= *\"(.*)\""))
+
+
+if getenv("READTHEDOCS", "False") == "True":
+
+    prjname = getenv("READTHEDOCS_PROJECT", "unknown")
+    pkgname = prjname.replace("-", "_")
+    pkg = import_module(pkgname)
+
+    project = pkg.__name__
+    version = pkg.__version__
+    author = pkg.__author__
+else:
+    project = metadata['name']
+    version = metadata['version']
+    author = metadata['author']
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -40,14 +63,11 @@ extensions = [
 ]
 napoleon_google_docstring = True
 master_doc = 'index'
-project = metadata['name']
-copyright = '%s, %s' % (strftime("%Y"), metadata['maintainer'])
-author = metadata['maintainer']
+copyright = '%s, %s' % (strftime("%Y"), author)
 release = version
-language = None
+language = "en"
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'conf.py']
 pygments_style = 'sphinx'
-todo_include_todos = False
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 intersphinx_mapping = {

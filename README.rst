@@ -1,7 +1,8 @@
+
 brent-search
 ============
 
-|PyPI-Status| |PyPI-Versions| |Conda-Forge-Status| |Conda-Downloads|
+|PyPI-Status| |Conda-Forge-Status| |Conda-Downloads|
 
 |Build-Status| |Codacy-Grade| |License|
 
@@ -75,9 +76,6 @@ for details.
 .. |PyPI-Downloads| image:: https://img.shields.io/pypi/dm/brent-search.svg
     :target: https://pypi.python.org/pypi/brent-search
 
-.. |PyPI-Versions| image:: https://img.shields.io/pypi/pyversions/brent-search.svg
-    :target: https://pypi.python.org/pypi/brent-search
-
 .. |Conda-Forge-Status| image:: https://anaconda.org/conda-forge/brent-search/badges/version.svg
     :target: https://anaconda.org/conda-forge/brent-search
 
@@ -87,7 +85,7 @@ for details.
 .. |License| image:: https://img.shields.io/pypi/l/brent-search.svg
     :target: https://raw.githubusercontent.com/brent-search/brent-search/master/LICENSE.txt
 
-.. _License-File: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE.txt
+.. _License file: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE.txt
 
 .. _Danilo Horta: https://github.com/horta
 
