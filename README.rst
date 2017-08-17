@@ -3,7 +3,7 @@ brent-search
 
 |PyPI-Status| |PyPI-Versions| |Conda-Forge-Status| |Conda-Downloads|
 
-|Build-Status| |Codacy-Grade| |LICENCE|
+|Build-Status| |Codacy-Grade| |License|
 
 Brent's method for univariate function optimization.
 
@@ -61,7 +61,7 @@ License
 -------
 
 This project is licensed under the MIT License - see the
-LICENSE_ file for details.
+License-File_ file for details.
 
 .. |Build-Status| image:: https://travis-ci.org/limix/brent-search.svg?branch=master
     :target: https://travis-ci.org/limix/brent-search
@@ -84,13 +84,13 @@ LICENSE_ file for details.
 .. |Conda-Downloads| image:: https://anaconda.org/conda-forge/brent-search/badges/downloads.svg
     :target: https://anaconda.org/conda-forge/brent-search
 
-.. |LICENCE| image:: https://img.shields.io/pypi/l/brent-search.svg
+.. |License| image:: https://img.shields.io/pypi/l/brent-search.svg
     :target: https://raw.githubusercontent.com/brent-search/brent-search/master/LICENCE
 
 .. |PyTest| image:: http://docs.pytest.org/en/latest/
     :target: http://docs.pytest.org/en/latest/
 
-.. _LICENSE: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE
+.. _License-File: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE
 
 .. _Danilo Horta: https://github.com/horta
 
