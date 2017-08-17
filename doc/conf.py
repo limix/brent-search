@@ -16,27 +16,22 @@ except ImportError:
 
 def get_metadata():
     config = ConfigParser()
-    config.read('setup.cfg')
-    return dict(config.items('metadata'))
+    dir_path = dirname(realpath(__file__))
+    config.read(join(dir_path, '..', 'setup.cfg'))
+    metadata = dict(config.items('metadata'))
+    metadata['packages'] = eval(metadata['packages'])
+    return metadata
 
 
-def get_init_metadata(expr):
+def get_init_metadata(name):
+    expr = re.compile(r"__%s__ *= *\"(.*)\"" % name)
+
     metadata = get_metadata()
-    prjname = metadata['packages'][0]
-    data = open(join(prjname, "__init__.py")).read()
-    return re.search(expr, data).group(1)
 
+    pkgname = metadata['packages'][0]
+    data = open(join("..", pkgname, "__init__.py")).read()
 
-def get_version(metadata):
-    return get_init_metadata(re.compile(r"__version__ *= *\"(.*)\""))
-
-
-def get_author(metadata):
-    return get_init_metadata(re.compile(r"__author__ *= *\"(.*)\""))
-
-
-def get_name(metadata):
-    return get_init_metadata(re.compile(r"__name__ *= *\"(.*)\""))
+    return re.search(expr, data).group(1).strip()
 
 
 if getenv("READTHEDOCS", "False") == "True":
@@ -49,9 +44,9 @@ if getenv("READTHEDOCS", "False") == "True":
     version = pkg.__version__
     author = pkg.__author__
 else:
-    project = metadata['name']
-    version = metadata['version']
-    author = metadata['author']
+    project = get_init_metadata('name')
+    version = get_init_metadata('version')
+    author = get_init_metadata('author')
 
 extensions = [
     'sphinx.ext.autodoc',
