@@ -1,10 +1,15 @@
 from __future__ import unicode_literals
 
 import re
-from configparser import ConfigParser
 from time import strftime
 
 import sphinx_rtd_theme
+
+try:
+    from configparser import ConfigParser
+except ImportError:
+    from ConfigParser import ConfigParser
+
 
 
 def get_metadata():

@@ -1,10 +1,14 @@
 import re
 import sys
-from configparser import ConfigParser
 from os import chdir, getcwd
 from os.path import abspath, dirname, join
 
 from setuptools import setup
+
+try:
+    from configparser import ConfigParser
+except ImportError:
+    from ConfigParser import ConfigParser
 
 
 class setup_folder(object):
