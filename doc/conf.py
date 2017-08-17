@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import re
+from os.path import dirname, join, realpath
 from time import strftime
 
 import sphinx_rtd_theme
@@ -12,8 +13,10 @@ except ImportError:
 
 
 def get_metadata():
+
     config = ConfigParser()
-    config.read('setup.cfg')
+    dir_path = dirname(realpath(__file__))
+    config.read(join(dir_path, '..', 'setup.cfg'))
     return dict(config.items('metadata'))
 
 
