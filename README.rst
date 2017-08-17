@@ -4,7 +4,7 @@ brent-search
 
 |PyPI-Status| |Conda-Forge-Status| |Conda-Downloads|
 
-|Build-Status| |Codacy-Grade| |License|
+|Build-Status| |Codacy-Grade| |License-Badge| |Doc-Status|
 
 Brent's method for univariate function optimization.
 
@@ -82,8 +82,11 @@ for details.
 .. |Conda-Downloads| image:: https://anaconda.org/conda-forge/brent-search/badges/downloads.svg
     :target: https://anaconda.org/conda-forge/brent-search
 
-.. |License| image:: https://img.shields.io/pypi/l/brent-search.svg
+.. |License-Badge| image:: https://img.shields.io/pypi/l/brent-search.svg
     :target: https://raw.githubusercontent.com/brent-search/brent-search/master/LICENSE.txt
+
+.. |Doc-Status| image:: https://readthedocs.org/projects/brent-search/badge/?style=flat-square&version=stable
+    :target: https://brent-search.readthedocs.io/
 
 .. _License file: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE.txt
 
