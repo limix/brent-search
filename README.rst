@@ -60,8 +60,8 @@ Authors
 License
 -------
 
-This project is licensed under the MIT License - see the
-License-File_ file for details.
+This project is licensed under the MIT License - see the `License file`_
+for details.
 
 .. |Build-Status| image:: https://travis-ci.org/limix/brent-search.svg?branch=master
     :target: https://travis-ci.org/limix/brent-search
@@ -85,9 +85,9 @@ License-File_ file for details.
     :target: https://anaconda.org/conda-forge/brent-search
 
 .. |License| image:: https://img.shields.io/pypi/l/brent-search.svg
-    :target: https://raw.githubusercontent.com/brent-search/brent-search/master/LICENCE
+    :target: https://raw.githubusercontent.com/brent-search/brent-search/master/LICENSE.txt
 
-.. _License-File: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE
+.. _License-File: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE.txt
 
 .. _Danilo Horta: https://github.com/horta
 
