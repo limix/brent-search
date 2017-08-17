@@ -3,7 +3,7 @@ sudo: required
 dist: trusty
 services: docker
 git:
-  depth: 2
+  depth: 1
 cache:
   pip: true
   directories:
