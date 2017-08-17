@@ -87,9 +87,6 @@ License-File_ file for details.
 .. |License| image:: https://img.shields.io/pypi/l/brent-search.svg
     :target: https://raw.githubusercontent.com/brent-search/brent-search/master/LICENCE
 
-.. |PyTest| image:: http://docs.pytest.org/en/latest/
-    :target: http://docs.pytest.org/en/latest/
-
 .. _License-File: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE
 
 .. _Danilo Horta: https://github.com/horta
