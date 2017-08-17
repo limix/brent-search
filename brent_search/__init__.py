@@ -6,5 +6,9 @@ from .optimize import minimize
 __name__ = "brent-search"
 __version__ = "1.0.25"
 __author__ = "Danilo Horta"
+__author_email__ = "horta@ebi.ac.uk"
 
-__all__ = ["__version__", "test", "bracket", "brent", "minimize"]
+__all__ = [
+    "__name__", "__version__", "__author__", "__author_email__", "test",
+    "bracket", "brent", "minimize"
+]

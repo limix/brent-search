@@ -62,6 +62,7 @@ def setup_package():
 
         metadata['version'] = get_init_metadata(metadata, 'version')
         metadata['author'] = get_init_metadata(metadata, 'author')
+        metadata['author_email'] = get_init_metadata(metadata, 'author_email')
         metadata['name'] = get_init_metadata(metadata, 'name')
         make_list(metadata, 'classifiers')
         make_list(metadata, 'keywords')
