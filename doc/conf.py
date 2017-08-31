@@ -7,28 +7,15 @@ from os.path import dirname, join, realpath
 from time import strftime
 
 import sphinx_rtd_theme
-
-try:
-    from configparser import ConfigParser
-except ImportError:
-    from ConfigParser import ConfigParser
-
-
-def get_metadata():
-    config = ConfigParser()
-    dir_path = dirname(realpath(__file__))
-    config.read(join(dir_path, '..', 'setup.cfg'))
-    metadata = dict(config.items('metadata'))
-    metadata['packages'] = eval(metadata['packages'])
-    return metadata
+from setuptools import find_packages
 
 
 def get_init_metadata(name):
     expr = re.compile(r"__%s__ *= *\"(.*)\"" % name)
 
-    metadata = get_metadata()
+    dir_path = dirname(realpath(__file__))
+    pkgname = find_packages(where=join(dir_path, '..'))[0]
 
-    pkgname = metadata['packages'][0]
     data = open(join("..", pkgname, "__init__.py")).read()
 
     return re.search(expr, data).group(1).strip()
@@ -49,12 +36,9 @@ else:
     author = get_init_metadata('author')
 
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.doctest',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.coverage',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon',
+    'sphinx.ext.autodoc', 'sphinx.ext.doctest', 'sphinx.ext.intersphinx',
+    'sphinx.ext.coverage', 'sphinx.ext.viewcode', 'sphinx.ext.napoleon',
+    'sphinx.ext.mathjax'
 ]
 napoleon_google_docstring = True
 master_doc = 'index'
@@ -67,5 +51,6 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 intersphinx_mapping = {
     'python': ('http://docs.python.org/', None),
-    'numpy': ('http://docs.scipy.org/doc/numpy/', None)
+    'numpy': ('http://docs.scipy.org/doc/numpy/', None),
+    'pandas': ('http://pandas.pydata.org/pandas-docs/stable/', None)
 }

@@ -4,7 +4,7 @@ from .brent import brent
 from .optimize import minimize
 
 __name__ = "brent-search"
-__version__ = "1.0.27"
+__version__ = "1.0.28"
 __author__ = "Danilo Horta"
 __author_email__ = "horta@ebi.ac.uk"
 
