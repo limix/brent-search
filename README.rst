@@ -83,7 +83,7 @@ for details.
     :target: https://anaconda.org/conda-forge/brent-search
 
 .. |License-Badge| image:: https://img.shields.io/pypi/l/brent-search.svg
-    :target: https://raw.githubusercontent.com/brent-search/brent-search/master/LICENSE.txt
+    :target: https://raw.githubusercontent.com/limix/brent-search/master/LICENSE.txt
 
 .. |Doc-Status| image:: https://readthedocs.org/projects/brent-search/badge/?style=flat-square&version=stable
     :target: https://brent-search.readthedocs.io/

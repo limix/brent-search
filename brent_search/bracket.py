@@ -27,20 +27,31 @@ def bracket(f,
         - 4: maxiter reached
         - 5: not strictly convex function
 
-    Args:
-        f (callable): function of interest.
-        x0 (:obj:`float`, optional): first point.
-        x1 (:obj:`float`, optional): second point.
-        a (:obj:`float`, optional): interval's lower limit. Defaults to ``-inf``.
-        b (:obj:`float`, optional): interval's upper limit. Defaults to ``+inf``.
-        gfactor (:obj:`float`, optional): growing factor.
-        rtol (:obj:`float`, optional): relative tolerance. Defaults to ``1.4902e-08``.
-        atol (:obj:`float`, optional): absolute tolerance. Defaults to ``1.4902e-08``.
-        maxiter (:obj:`int`, optional): maximum number of iterations. Defaults to ``500``.
+    Parameters
+    ----------
+    f : callable
+        Function of interest.
+    x0 : float, optional
+        First point.
+    x1 : float, optional
+        Second point.
+    a : float, optional
+        Interval's lower limit. Defaults to ``-inf``.
+    b : float, optional
+        Interval's upper limit. Defaults to ``+inf``.
+    gfactor : float, optional
+        Growing factor.
+    rtol : float, optional
+        Relative tolerance. Defaults to ``1.4902e-08``.
+    atol : float, optional
+        Absolute tolerance. Defaults to ``1.4902e-08``.
+    maxiter : int, optional
+        Maximum number of iterations. Defaults to ``500``.
 
-    Returns:
-        A tuple containing the found solution (if any) in the first position
-        and the exit code in the second position: ``((x0, x1, x2, f0, f1, f2), ecode)``.
+    Returns
+    -------
+    float : Found solution (if any): ``(x0, x1, x2, f0, f1, f2)``
+    int : Exit code.
     """
 
     ecode = 0

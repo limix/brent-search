@@ -28,13 +28,20 @@ def brent(f,
     evaluating ``f`` at a point that is closer than ``tol`` to a previously
     evaluated one or if the number of iterations reaches ``maxiter``.
 
-    Args:
-        f (object): Objective function to be minimized.
-        a (:obj:`float`, optional): interval's lower limit. Defaults to ``-inf``.
-        b (:obj:`float`, optional): interval's upper limit. Defaults to ``+inf``.
-        rtol (float): relative tolerance. Defaults to 1.4902e-08.
-        atol (float): absolute tolerance. Defaults to 1.4902e-08.
-        maxiter (int): maximum number of iterations
+    Parameters
+    ----------
+    f : object
+        Objective function to be minimized.
+    a : float, optional
+        Interval's lower limit. Defaults to ``-inf``.
+    b : float, optional
+        Interval's upper limit. Defaults to ``+inf``.
+    rtol : float
+        Relative tolerance. Defaults to ``1.4902e-08``.
+    atol : float
+        Absolute tolerance. Defaults to ``1.4902e-08``.
+    maxiter : int
+        Maximum number of iterations.
 
 
     Returns:

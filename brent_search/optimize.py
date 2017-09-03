@@ -22,21 +22,32 @@ def minimize(f,
     Applies :func:`brent_search.bracket` and then :func:`brent_search.brent`
     to find the minimum.
 
-    Args:
-        f (callable): function of interest.
-        x0 (:obj:`float`, optional): first point.
-        x1 (:obj:`float`, optional): second point.
-        a (:obj:`float`, optional): interval's lower limit. Defaults to ``-inf``.
-        b (:obj:`float`, optional): interval's upper limit. Defaults to ``+inf``.
-        gfactor (:obj:`float`, optional): growing factor.
-        rtol (:obj:`float`, optional): relative tolerance. Defaults to ``1.4902e-08``.
-        atol (:obj:`float`, optional): absolute tolerance. Defaults to ``1.4902e-08``.
-        maxiter (:obj:`int`, optional): maximum number of iterations. Defaults to ``500``.
+    Parameters
+    ----------
+    f : callable
+        Function of interest.
+    x0 : float, optional
+        First point.
+    x1 : float, optional
+        Second point.
+    a : float, optional
+        Interval's lower limit. Defaults to ``-inf``.
+    b : float, optional
+        Interval's upper limit. Defaults to ``+inf``.
+    gfactor : float, optional
+        Growing factor.
+    rtol : float, optional
+        Relative tolerance. Defaults to ``1.4902e-08``.
+    atol : float, optional
+        Absolute tolerance. Defaults to ``1.4902e-08``.
+    maxiter : int, optional
+        Maximum number of iterations. Defaults to ``500``.
 
-    Returns:
-        A tuple containing the found solution (if any) in the first position,
-        the function evaluated at that point, and the number of function
-        evaluations.
+    Returns
+    -------
+    float : Found solution (if any).
+    float : Function evaluation at that point.
+    int : The number of function evaluations.
     """
 
     def func(x):
