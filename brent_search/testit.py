@@ -18,14 +18,17 @@ def test(verbose=True):
 
     pkgname = basename(dirname(realpath(__file__)))
 
-    p = join(__import__(pkgname).__path__[0], '..')
+    p = __import__(pkgname).__path__[0]
     src_path = abspath(p)
     old_path = getcwd()
     chdir(src_path)
 
+    args = ['--doctest-modules', '-x', '--pep8']
+    if not verbose:
+        args += ['-q']
+
     try:
-        return_code = __import__('pytest').main(
-            ['--doctest-modules', '-x', '--pep8'])
+        return_code = __import__('pytest').main(args)
     finally:
         chdir(old_path)
 
