@@ -1,27 +1,36 @@
 language: python
 sudo: false
 python:
-  - 2.7
-  - 3.6
+- 2.7
+- 3.6
 addons:
   apt:
     packages:
-      - pandoc
+    - pandoc
 install:
-  - pushd . && cp requirements.txt ~/ && cd ~/
-  - travis_retry pip install -r requirements.txt -q
-  - rm requirements.txt && popd
+- pushd . && cp requirements.txt ~/ && cd ~/
+- travis_retry pip install -r requirements.txt -q
+- rm requirements.txt && popd
 script:
-  - coverage run --source brent_search -m pytest
-  - python setup.py install && pip uninstall brent-search --yes
-  - python setup.py sdist
-  - pip install dist/$(ls dist | grep -i -E '\.(gz)$' | head -1)
-  - pip uninstall brent-search --yes
+- coverage run --source brent_search -m pytest
+- python setup.py install && pip uninstall brent-search --yes
+- python setup.py sdist
+- pip install dist/$(ls dist | grep -i -E '\.(gz)$' | head -1)
+- pip uninstall brent-search --yes
 after_success:
-  - codecov
+- codecov
 notifications:
   email:
     recipients:
-      - danilo.horta@gmail.com
+    - danilo.horta@gmail.com
     on_success: never
     on_failure: always
+deploy:
+  provider: pypi
+  user: dhorta
+  password:
+    secure: dK4R4QcMiRG9B5/C2QcoY5oD7fqfYg9G+/lCcFh51O2M8SihAsur80uvD/d07DQifqpkWTpTjsFE9horlmlONkIh1QhIYnCqqaKta1VVUHOMyTNWaZxht3nKT4jp4cBtmDVr3d7ZyuPfKXWSQhaPVJGAYvsrxLD8yba3rERK2PE84RpuWdVr4g4XKmUpO6uyEGAY9yFuY8/zpcmCy9Df+9amhWa1qXVh2NeZxzBb2lr742jZF+CdyiZVfun1dkGgD7/fuj/gc2/u/MRwcvoTAxyjCCTqOfcm4jwNe3JRHA2zi2YR2MNOzc+Ey1OiyrSUv9YolZSrWiD2K5DVEBgBU4SqfHnWacElUJ79hlCV0q5zSwWWC0Mi9C76/A2YcYt63US2qKq62fHc6F2skkSINswQCCJ7dgeUAgXlXT8khzMOAEB3cRXxuTSkDLGZPUa/bqktc36gQt462IGnunYl+srjY1UfdxGi8mlm/kupJY5IgCi6e5jxrQSNzrSal3uuNGtl35DmcndqNVfI6qGClHSbY5rKPp6of6oW39rXZANxWuz5QRFHZYN2cheeT/G3SPIX41SyAjkPsutJnamLmsDG4J52HRUuGDkDHbW8V1sKWHBs43EuEa4zOrb7Exa49ZV7JhW5OtWrAx8695fbDpyPRcQJXXydCTWwtlMvyto=
+  on:
+    tags: true
+    repo: limix/brent-search
+    branch: master
