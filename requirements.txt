@@ -5,3 +5,4 @@ sphinx_rtd_theme>=0.2.4
 numpy>=1.13
 pypandoc>=1.4
 pytest-runner>=3.0
+pytest-gitignore>=1.3
