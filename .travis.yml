@@ -1,22 +1,14 @@
 language: python
 sudo: false
 python: 3.6
+env:
+  - PKG_NAME=pandas_plink
 addons:
   apt:
     packages:
     - pandoc
-install:
-- pushd . && cp requirements.txt ~/ && cd ~/
-- travis_retry pip install -r requirements.txt -q
-- rm requirements.txt && popd
 script:
-- coverage run --source brent_search -m pytest
-- python setup.py install && pip uninstall brent-search --yes
-- python setup.py sdist
-- pip install dist/$(ls dist | grep -i -E '\.(gz)$' | head -1)
-- pip uninstall brent-search --yes
-after_success:
-- codecov
+- bash <(curl -fsSL https://raw.githubusercontent.com/horta/ci/master/travis.sh)
 notifications:
   email:
     recipients:
