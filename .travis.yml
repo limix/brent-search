@@ -2,7 +2,7 @@ language: python
 sudo: false
 python: 3.6
 env:
-  - PKG_NAME=pandas_plink
+  - PKG_NAME=brent_search
 addons:
   apt:
     packages:
