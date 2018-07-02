@@ -6,16 +6,18 @@ _eps = 1.4902e-08
 _golden = 0.381966011250105097
 
 
-def brent(f,
-          a=-inf,
-          b=+inf,
-          fa=None,
-          fb=None,
-          x0=None,
-          f0=None,
-          rtol=_eps,
-          atol=_eps,
-          maxiter=500):
+def brent(
+    f,
+    a=-inf,
+    b=+inf,
+    fa=None,
+    fb=None,
+    x0=None,
+    f0=None,
+    rtol=_eps,
+    atol=_eps,
+    maxiter=500,
+):
     """Seeks a local minimum of a function f in a closed interval [a, b] via
     Brent's method.
 

@@ -6,7 +6,7 @@ from numpy.testing import assert_, assert_almost_equal, assert_array_less
 
 def test_strictly_convex():
     def func(x, s):
-        return (x - s)**2 - 0.8
+        return (x - s) ** 2 - 0.8
 
     (x, fx, niters) = brent(lambda x: func(x, 0), -10, 10)
     assert_almost_equal(x, 0)
@@ -76,7 +76,7 @@ def test_asymptotic():
 
 def test_same_point():
     def func(x):
-        return x**2
+        return x ** 2
 
     (x, _, niters) = brent(func, 1.2, 1.2)
     assert_array_less(niters, 2)
@@ -86,7 +86,7 @@ def test_same_point():
 def test_piecewise_convex():
     def func(x):
         if abs(x) > 2:
-            return x**2
+            return x ** 2
         if abs(x) > 1:
             return abs(x)
         return 1
