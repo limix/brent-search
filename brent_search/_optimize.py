@@ -11,10 +11,10 @@ _eps = 1.4902e-08
 def minimize(
     f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2, rtol=_eps, atol=_eps, maxiter=500
 ):
-    r"""Function minimization.
+    r""" Function minimization.
 
-    Applies :func:`brent_search.bracket` and then :func:`brent_search.brent`
-    to find the minimum.
+    Applies :func:`brent_search.bracket` to find a bracketing interval, to which
+    :func:`brent_search.brent` is subsequently applied to find a local minimum.
 
     Parameters
     ----------
@@ -39,9 +39,12 @@ def minimize(
 
     Returns
     -------
-    float : Found solution (if any).
-    float : Function evaluation at that point.
-    int : The number of function evaluations.
+    float
+        Found solution (if any).
+    float
+        Function evaluation at that point.
+    int
+        The number of function evaluations.
     """
 
     def func(x):
@@ -62,6 +65,6 @@ def minimize(
         maxiter=maxiter,
     )
 
-    x0, x1, x2, f0, f1, f2 = r[0], r[1], r[2], r[3], r[4], r[5]
-    x0, f0 = brent(func, x0, x2, f0, f2, x1, f1, rtol, atol, maxiter)[0:2]
+    x0, x1, x2, f0, f1 = r[0], r[1], r[2], r[3], r[4]
+    x0, f0 = brent(func, x0, x2, x1, f1, rtol, atol, maxiter)[0:2]
     return x0, f0, func.nfev

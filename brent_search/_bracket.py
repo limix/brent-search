@@ -6,20 +6,12 @@ _eps = 1.4902e-08
 
 
 def bracket(
-    f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2., rtol=_eps, atol=_eps, maxiter=500
+    f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.0, rtol=_eps, atol=_eps, maxiter=500
 ):
-    r"""Find a bracketing interval.
+    r""" Find a bracketing interval.
 
-    A bracket is defined as any three strictly increasing points
-    ``(x0, x1, x2)`` such that ``f(x0) > f(x1) < f(x2)``.
-
-    Exit code:
-        - 0: unknown
-        - 1: found bracket
-        - 2: hit the boundary
-        - 3: too close points
-        - 4: maxiter reached
-        - 5: not strictly convex function
+    Given a function ``f``, a bracketing interval is defined as any three strictly
+    increasing points ``(x0, x1, x2)`` such that ``f(x0) > f(x1) < f(x2)``.
 
     Parameters
     ----------
@@ -44,8 +36,14 @@ def bracket(
 
     Returns
     -------
-    float : Found solution (if any): ``(x0, x1, x2, f0, f1, f2)``
-    int : Exit code.
+    tuple
+        Found solution (if any): ``(x0, x1, x2, f0, f1, f2)``
+    int
+        Exit code. From zero to five, they mean "unknown", "found bracketing interval",
+        "hit the boundary", "too close points", "maxiter reached", and
+        "not strictly convex function".
+        Therefore, an exit code ``1`` means a valid solution has been found. Otherwise
+        an error has occurred.
     """
 
     ecode = 0

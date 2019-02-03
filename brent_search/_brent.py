@@ -6,29 +6,17 @@ _eps = 1.4902e-08
 _golden = 0.381966011250105097
 
 
-def brent(
-    f,
-    a=-inf,
-    b=+inf,
-    fa=None,
-    fb=None,
-    x0=None,
-    f0=None,
-    rtol=_eps,
-    atol=_eps,
-    maxiter=500,
-):
-    """Seeks a local minimum of a function f in a closed interval [a, b] via
-    Brent's method.
+def brent(f, a=-inf, b=+inf, x0=None, f0=None, rtol=_eps, atol=_eps, maxiter=500):
+    """ Seeks a minimum of a function via Brent's method.
 
-    Given a function f with a minimum in the interval the a <= b,
-    seeks a local minima using a combination of golden section search and
-    successive parabolic interpolation.
+    Given a function ``f`` with a minimum in the interval ``a <= b``, seeks a local
+    minimum using a combination of golden section search and successive parabolic
+    interpolation.
 
-    Let ``tol = rtol * abs(x0) + atol``, where ``x0`` is the best guess
-    found so far. It converges if evaluating a next guess would imply
-    evaluating ``f`` at a point that is closer than ``tol`` to a previously
-    evaluated one or if the number of iterations reaches ``maxiter``.
+    Let ``tol = rtol * abs(x0) + atol``, where ``x0`` is the best guess found so far.
+    It converges if evaluating a next guess would imply evaluating ``f`` at a point that
+    is closer than ``tol`` to a previously evaluated one or if the number of iterations
+    reaches ``maxiter``.
 
     Parameters
     ----------
@@ -38,6 +26,14 @@ def brent(
         Interval's lower limit. Defaults to ``-inf``.
     b : float, optional
         Interval's upper limit. Defaults to ``+inf``.
+    x0 : float, optional
+        Initial guess. Defaults to ``None``, which implies that::
+
+            x0 = a + 0.382 * (b - a)
+            f0 = f(x0)
+
+    f0 : float, optional
+        Function evaluation at ``x0``.
     rtol : float
         Relative tolerance. Defaults to ``1.4902e-08``.
     atol : float
@@ -46,15 +42,20 @@ def brent(
         Maximum number of iterations.
 
 
-    Returns:
-        float: best guess for the minimum of f.
-        float: value of f evaluated at the best guess.
-        int: number of iterations performed.
+    Returns
+    -------
+    float
+        Best guess ``x`` for the minimum of ``f``.
+    float
+        Value ``f(x)``.
+    int
+        Number of iterations performed.
 
-    References:
-        - http://people.sc.fsu.edu/~jburkardt/c_src/brent/brent.c
-        - Numerical Recipes 3rd Edition: The Art of Scientific Computing
-        - https://en.wikipedia.org/wiki/Brent%27s_method
+    References
+    ----------
+    - http://people.sc.fsu.edu/~jburkardt/c_src/brent/brent.c
+    - Numerical Recipes 3rd Edition: The Art of Scientific Computing
+    - https://en.wikipedia.org/wiki/Brent%27s_method
     """
     # a, b: interval within the minimum should lie
     #       no function evaluation will be requested
@@ -169,11 +170,9 @@ def brent(
             if u < x0:
                 if b != x0:
                     b = x0
-                    fb = f0
             else:
                 if a != x0:
                     a = x0
-                    fa = f0
 
             # Shift: drop the previous third best point out and
             # include the newest point (found to be the best so far).
@@ -189,11 +188,9 @@ def brent(
             if u < x0:
                 if a != u:
                     a = u
-                    fa = fu
             else:
                 if b != u:
                     b = u
-                    fb = fu
 
             # Is the most recently evaluated point at better (or equal)
             # than the second best one?
