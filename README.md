@@ -1,6 +1,6 @@
 # brent-search
 
-[![Travis](https://img.shields.io/travis/com/limix/brent-search.svg?style=flat-square&label=linux%20%2F%20macos%20build)](https://travis-ci.com/limix/brent-search) [![AppVeyor](https://img.shields.io/appveyor/ci/Horta/brent-search.svg?style=flat-square&label=windows%20build)](https://ci.appveyor.com/project/Horta/brent-search) [![Read the Docs (version)](https://img.shields.io/readthedocs/brent-search/stable.svg?style=flat-square)](http://brent-search.readthedocs.io/)
+[![Travis](https://img.shields.io/travis/com/limix/brent-search.svg?style=flat-square&label=linux%20%2F%20macos%20build)](https://travis-ci.com/limix/brent-search) [![AppVeyor](https://img.shields.io/appveyor/ci/Horta/brent-search.svg?style=flat-square&label=windows%20build)](https://ci.appveyor.com/project/Horta/brent-search) [![Read the Docs (version)](https://img.shields.io/readthedocs/brent-search/latest.svg?style=flat-square)](http://brent-search.readthedocs.io/)
 
 Brent's method for univariate function optimization.
 
