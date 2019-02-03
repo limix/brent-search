@@ -30,15 +30,7 @@ From command line, enter
 pip install brent-search
 ```
 
-## Running the tests
-
-Install dependencies
-
-```bash
-pip install -U pytest pytest-pep8
-```
-
-then run
+## Testing
 
 ```python
 python -c "import brent_search; brent_search.test()"
