@@ -8,7 +8,7 @@ _eps = 1.4902e-08
 def bracket(
     f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2.0, rtol=_eps, atol=_eps, maxiter=500
 ):
-    r""" Find a bracketing interval.
+    r"""Find a bracketing interval.
 
     Given a function ``f``, a bracketing interval is defined as any three strictly
     increasing points ``(x0, x1, x2)`` such that ``f(x0) > f(x1) < f(x2)``.

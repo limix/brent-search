@@ -7,7 +7,7 @@ _golden = 0.381966011250105097
 
 
 def brent(f, a=-inf, b=+inf, x0=None, f0=None, rtol=_eps, atol=_eps, maxiter=500):
-    """ Seeks a minimum of a function via Brent's method.
+    """Seeks a minimum of a function via Brent's method.
 
     Given a function ``f`` with a minimum in the interval ``a <= b``, seeks a local
     minimum using a combination of golden section search and successive parabolic

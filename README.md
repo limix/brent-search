@@ -1,7 +1,5 @@
 # brent-search
 
-[![Travis](https://img.shields.io/travis/com/limix/brent-search.svg?style=flat-square&label=linux%20%2F%20macos%20build)](https://travis-ci.com/limix/brent-search) [![AppVeyor](https://img.shields.io/appveyor/ci/Horta/brent-search.svg?style=flat-square&label=windows%20build)](https://ci.appveyor.com/project/Horta/brent-search) [![Read the Docs (version)](https://img.shields.io/readthedocs/brent-search/latest.svg?style=flat-square)](http://brent-search.readthedocs.io/)
-
 Brent's method for univariate function optimization.
 
 ## Example
@@ -35,6 +33,10 @@ pip install brent-search
 ```python
 python -c "import brent_search; brent_search.test()"
 ```
+
+## Documentation
+
+[Documentation](https://brent-search.readthedocs.io/en/latest/)
 
 ## Authors
 

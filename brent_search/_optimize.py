@@ -11,7 +11,7 @@ _eps = 1.4902e-08
 def minimize(
     f, x0=None, x1=None, a=-inf, b=+inf, gfactor=2, rtol=_eps, atol=_eps, maxiter=500
 ):
-    r""" Function minimization.
+    r"""Function minimization.
 
     Applies :func:`brent_search.bracket` to find a bracketing interval, to which
     :func:`brent_search.brent` is subsequently applied to find a local minimum.
