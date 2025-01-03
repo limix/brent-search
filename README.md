@@ -28,16 +28,6 @@ From command line, enter
 pip install brent-search
 ```
 
-## Testing
-
-```python
-python -c "import brent_search; brent_search.test()"
-```
-
-## Documentation
-
-[Documentation](https://brent-search.readthedocs.io/en/latest/)
-
 ## Authors
 
 * [Danilo Horta](https://github.com/horta)
