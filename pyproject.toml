@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "brent-search"
-version = "2.0.1"
+version = "2.0.2"
 description = "Brent's method for univariate function optimization"
 authors = ["Danilo Horta <danilo.horta@pm.me>"]
 license = "MIT"

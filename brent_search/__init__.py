@@ -18,6 +18,6 @@ from ._brent import brent
 from ._optimize import minimize
 from ._testit import test
 
-__version__ = "2.0.1"
+__version__ = "2.0.2"
 
 __all__ = ["__version__", "test", "bracket", "brent", "minimize"]
